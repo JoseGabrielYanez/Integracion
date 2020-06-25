@@ -7,7 +7,6 @@ const posiciones = [23, 14, 18, 19, 62, 67, 26, 68, 28, 10, 11, 81, 80, 6, 83, 3
 let archivo = [];
 let cuerpo = [];
 
-
 validaciones.validacion = function(arregloHead, arregloBody) {
 
     for (f = 0; f < arregloBody.length; f++) {
@@ -17,9 +16,9 @@ validaciones.validacion = function(arregloHead, arregloBody) {
                 arregloBody[f][indice] = fecha(arregloBody[f][indice]);
             }
             cuerpo.push(arregloBody[f][indice]);
-            archivo.push(arregloHead[indice].name);
+            if (!archivo.includes(arregloHead[indice].name))
+                archivo.push(arregloHead[indice].name);
         }
-
     }
     formatoCsv(archivo, cuerpo);
 };
@@ -35,8 +34,8 @@ function fecha(fechas) {
 
 function formatoCsv(header, datos) {
     input = [
-        [header],
-        [datos]
+        header,
+        datos
     ]
     csv(input, function(err, output) {
         if (err) {
@@ -48,7 +47,7 @@ function formatoCsv(header, datos) {
 }
 
 function CrearArchivo(archivo) {
-    fs.writeFile(`info.csv`, archivo, (err) => {
+    fs.writeFile(`info.txt`, archivo, (err) => {
         if (err) console.log(err);
         console.log('archivo creado');
     })
