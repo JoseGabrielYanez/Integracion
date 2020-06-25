@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class='container'> </div>
+    <div class='row mt-5'>
+        <table class='table table-bordered table-hover table-dark '>
+            <thead>
+                <tr>
+                    <% posiciones = [23, 14, 18, 19, 62, 67, 26, 68, 28, 10, 11, 81, 80, 6, 83, 30, 3, 4, 5, 48, 8, 2, 38, 39, 41, 42, 43, 46, 47, 13, 84, 12, 82];%>
+                        <% if (datos) { %>
+                            <% for(var i = 0; i < posiciones.length; i++) { %>
+                                <td>
+                                    <% indice = posiciones[i] %>
+                                        <%= datos[indice].name %>
+                                            </br>
+                                </td>
+                                <%}%>
+                                    <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data) { %>
+                    <% posiciones = [23, 14, 18, 19, 62, 67, 26, 68, 28, 10, 11, 81, 80, 6, 83, 30, 3, 4, 5, 48, 8, 2, 38, 39, 41, 42, 43, 46, 47, 13, 84, 12, 82];%>
+                        <% for(var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <% for(var c = 0; c < posiciones.length; c++) { %>
+                                    <% indice = posiciones[c] %>
+                                        <td>
+                                            <%= data[i][indice] %>
+                                        </td>
+                                        <% } %>
+                            </tr>
+                            <% } %>
+                                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
