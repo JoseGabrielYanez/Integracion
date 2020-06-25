@@ -47,7 +47,7 @@ function formatoCsv(header, datos) {
 }
 
 function CrearArchivo(archivo) {
-    fs.writeFile(`info.txt`, archivo, (err) => {
+    fs.writeFile(`info.csv`, archivo, (err) => {
         if (err) console.log(err);
         console.log('archivo creado');
     })
